@@ -16,3 +16,24 @@ continouscol = ['no_of_trainings', 'age', 'length_of_service', 'avg_training_sco
                  'awards_won?']
                  
 categoricalcol = ['department', 'region', 'education', 'gender', 'recruitment_channel','is_promoted'] 
+
+Then the Missing values are checked and treated if it is a continuous column we will take median and if it is a categorical variable then mode.
+
+## Visual analysis and Statistical analysis
+
+Histogram is ploted for continuous variables and bar is plot for categorical. Then ANOVA test is done to see the relation between continuous and categoical. Chi-square test is done to check correlation between categorical vs categorical.
+
+# Model Building
+
+After the statistical analysis we have droped the unrellated variables and the final predictor variables are selected
+
+SelectedColumns=['department', 'region', 'education', 'gender', 'recruitment_channel', 'no_of_trainings', 'age',
+                 'length_of_service', 'avg_training_score', 'previous_year_rating', 'KPIs_met >80%', 'awards_won?']
+                 
+## converting categorical into numerical 
+
+now we will devide the categorical column into ordinal and nominal, for ordinal variables we will asign proper order indexing.
+once it is done for nominal variables we will use get_dummies
+
+once the predictors are converted to numeric then the data is split into 70%-30% train and test data. then XGBClassifier is been import from Xboost library.
+then the train and test models are fitted into the Classifier and the accuracy is printed.
